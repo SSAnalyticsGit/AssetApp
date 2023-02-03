@@ -99,9 +99,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'reporting_app_test',
-        'USER': os.environ['LOCAL_MYSQL_USER'],
-        'PASSWORD': os.environ['LOCAL_MYSQL_PASSWORD'],
-        'HOST': 'localhost',
+        'USER': os.environ['DB_USERNAME'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'HOST': 'eagle-eye-db.mysql.database.azure.com',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
