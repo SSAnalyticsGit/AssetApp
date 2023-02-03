@@ -6,4 +6,3 @@ PyMySQL==1.0.2
 sqlparse==0.4.2
 tzdata==2021.5
 django-cors-headers==3.10.1
-pillow==9.0.1
