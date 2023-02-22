@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'ssar'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2951CA564376457C81CFE9054AC27502 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_585C30EFEAAC44C798369C49FC2B711F }}
