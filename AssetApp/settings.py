@@ -39,6 +39,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS= ['https://ssar.azurewebsites.net']
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 # Application definition
 
