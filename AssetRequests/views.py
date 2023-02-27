@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
-
+@csrf_protect
 def index(request):
     #r_form = SiteForm()
     r_site = Site.objects.all().order_by('name')
@@ -19,10 +19,13 @@ def index(request):
     return render(request, 'index.html', {'r_site': r_site})
 
 
+@csrf_protect
+@login_required
 def UserProfile(request):
     return render(request, 'profile.html')
 
 
+@csrf_protect
 def MakeRequestView(request, id=0):
     if request.method == 'POST':
         if id == 0:
@@ -73,6 +76,8 @@ def MakeRequestView(request, id=0):
     return render(request, 'assetrequest.html', {'siteform': siteform, 'requestform': requestform})
 
 
+@csrf_protect
+@login_required
 def ManagerAllocation(request, pk):
     manager = UserProfile.objects.get(id=pk)
     schedules = AssetRequest.objects.get(id=pk)
@@ -87,21 +92,25 @@ def ManagerAllocation(request, pk):
     return render(request, 'manager_pending_list.html', {'mpl': context})
 
 
+@csrf_protect
 def pending_request(request):
     req = AssetRequest.objects.all_pending_requests()
     return render(request, 'pending_list.html', {'pending_list': req})
 
 
+@csrf_protect
 def approved_list(request):
     asset_req = AssetRequest.objects.all_approved_requests()
     return render(request, 'approved_list.html', {'approved_list': asset_req})
 
 
+@csrf_protect
 def approved_request(request):
     req = AssetRequest.objects.all_approved_requests()
     return render(request, 'approved_list.html', {'approved_list': req})
 
 
+@csrf_protect
 def RequestView(request, id):
     asset_req = get_object_or_404(AssetRequest, id=id)
     thesite = Site.objects.filter(name=asset_req.site)[0]
@@ -109,6 +118,7 @@ def RequestView(request, id):
     return render(request, 'request_detail_view.html', {'asset_req': asset_req, 'site': thesite})
 
 
+@csrf_protect
 def approve_request(request, id):
     req = get_object_or_404(AssetRequest, id=id)
     place = req.site
@@ -129,6 +139,7 @@ def approve_request(request, id):
     return redirect('PendingRequest')
 
 
+@csrf_protect
 def reject_request(request,id):
     #context = dict()
     req = get_object_or_404(AssetRequest, id=id)
@@ -144,6 +155,7 @@ def reject_request(request,id):
 j = 0
 
 
+@csrf_protect
 def cto_pending_list(request):
     req = AssetRequest.objects.cto_all_pending_requests()
     i = req.count()
@@ -168,11 +180,13 @@ def cto_pending_list(request):
     return render(request, 'cto_pending_list.html', {'cto_pending_list': req, 'title': 'Asset Request List - Pending Approval'})
 
 
+@csrf_protect
 def cto_approved_list(request):
     req = AssetRequest.objects.cto_all_approved_requests()
     return render(request, 'cto_approved_list.html', {'cto_approved_list': req, 'title': 'Asset Approval List - Approved'})
 
 
+@csrf_protect
 def cto_approve_request(request, id):
     req = get_object_or_404(AssetRequest, id=id)
     place = req.site
@@ -181,6 +195,7 @@ def cto_approve_request(request, id):
     return redirect('CTOPendingRequest')
 
 
+@csrf_protect
 def cto_request_view(request, id):
 
     req = get_object_or_404(AssetRequest, id=id)
@@ -189,6 +204,7 @@ def cto_request_view(request, id):
     return render(request, 'cto_request_detail_view.html', {'request_list': req, 'site':thesite})
 
 
+@csrf_protect
 def cto_reject_request(request, id):
     req = get_object_or_404(AssetRequest, id=id)
     place = req.site
@@ -200,6 +216,7 @@ def cto_reject_request(request, id):
     return redirect('CTOPendingRequest')
 
 
+@csrf_protect
 def cto_approval_form_view(request, id):
     return render(request, 'cto_approval.html')
 ###################################################################CTO APPROVAL#####################################################################################
