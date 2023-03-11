@@ -59,7 +59,7 @@ def MakeRequestView(request, id=0):
 
             except BadHeaderError:
                 return HttpResponse("invalid Header Found")
-            return print('Request Successful')  # redirect('/')
+            return redirect('/')
 
         # else:
         #     print(requestform.errors)
