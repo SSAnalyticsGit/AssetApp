@@ -149,7 +149,7 @@ def reject_request(request,id):
     req.delete()
     #put a rejection message here to confirm reject 
     messages.error(request, 'Diesel request rejected for {0}'.format(thesite.name),extra_tags={"Reject"})
-    return redirect('pending_requestlist')
+    return redirect('PendingRequest')
 
 ###################################################################CTO APPROVAL#####################################################################################
 j = 0
