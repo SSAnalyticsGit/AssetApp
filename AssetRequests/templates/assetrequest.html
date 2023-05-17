@@ -19,13 +19,7 @@
   <body>
     <div class="container">
       {% block content %}
-      <form
-        method="POST"
-        action=""
-        onsubmit="SuccessFunction()"
-        autocomplete="off"
-        class="container-fluid"
-      >
+      <form method="POST" action="" onsubmit="SuccessFunction()" autocomplete="off" class="container-fluid">
         {% csrf_token %}
         <div class="row">
           <div class="">
@@ -34,28 +28,17 @@
               <br />
               <hr />
             </div>
-            <div
-              class="container justify-content-center rounded-3 mx-auto d-block border border-success bg-light"
-            >
+            <div class="container justify-content-center rounded-3 mx-auto d-block border border-success bg-light">
               <div class="row">
-                <div class="col-md-3">
-                  {{requestform.site | as_crispy_field }}
-                </div>
-                <div class="col-md-3">
-                  {{requestform.site_engineer | as_crispy_field }}
-                </div>
-                <div class="col-md-3">
-                  {{requestform.site_manager | as_crispy_field }}
-                </div>
+                <div class="col-md-3">{{requestform.site | as_crispy_field }}</div>
+                <div class="col-md-3">{{requestform.site_engineer | as_crispy_field }}</div>
+                <div class="col-md-3">{{requestform.site_manager | as_crispy_field }}</div>
               </div>
               <div class="col-md-8 pt-4 pb-4">
-                <h6 class="p-2 mb-2 bg-success text-white text-center">
-                  Details of Item to Replace
-                </h6>
+                <h6 class="p-2 mb-2 bg-success text-white text-center">Details of Item to Replace</h6>
                 <div class="row">
                   <div class="col-md-4">
-                    {{requestform.bad_equipment_name | as_crispy_field }}
-                    {{requestform.bad_equipment_rating| as_crispy_field }}
+                    {{requestform.bad_equipment_name | as_crispy_field }} {{requestform.bad_equipment_rating| as_crispy_field }}
                     {{requestform.bad_days_in_ops | as_crispy_field }}
                   </div>
                   <div class="col-md-4">
@@ -65,8 +48,7 @@
                   </div>
                   <div class="col-md-2">
                     <div>
-                      {{requestform.manufacturer | as_crispy_field }}
-                      {{requestform.bad_model_number | as_crispy_field }}
+                      {{requestform.manufacturer | as_crispy_field }} {{requestform.bad_model_number | as_crispy_field }}
                       {{requestform.bad_serial_number | as_crispy_field }}
                     </div>
                   </div>
@@ -78,42 +60,27 @@
               </div>
 
               <div class="col-md-8 pt-4 pb-4">
-                <h6 class="p-2 mb-2 bg-success text-white text-center">
-                  Details of Item Requested
-                </h6>
+                <h6 class="p-2 mb-2 bg-success text-white text-center">Details of Item Requested</h6>
                 <div>{{requestform.product | as_crispy_field }}</div>
                 <div class="row">
                   <div class="col-md-3">
-                    {% comment %} {{requestform.new_model_number |
-                    as_crispy_field }} {% endcomment %}
-                    {{requestform.new_manufacturer | as_crispy_field }}
-                    {{requestform.new_equipment_name | as_crispy_field }}
+                    {% comment %} {{requestform.new_model_number | as_crispy_field }} {% endcomment %} {{requestform.new_manufacturer |
+                    as_crispy_field }} {{requestform.new_equipment_name | as_crispy_field }}
                   </div>
                   <div class="col-md-3">
-                    <div>
-                      {{requestform.new_equipment_rating | as_crispy_field }}
-                      {{requestform.expected_date | as_crispy_field }}
-                    </div>
+                    <div>{{requestform.new_equipment_rating | as_crispy_field }} {{requestform.expected_date | as_crispy_field }}</div>
                   </div>
-                 ---
+                  ---
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-4 pt-2 pb-2">
-                  <h6 class="p-2 mb-2 bg-success text-white text-center">
-                    Manager's Approval and Comment
-                  </h6>
-                  <div class="col-md-6">
-                    {{requestform.sitemanager_comment | as_crispy_field }}
-                  </div>
+                  <h6 class="p-2 mb-2 bg-success text-white text-center">Manager's Approval and Comment</h6>
+                  <div class="col-md-6">{{requestform.sitemanager_comment | as_crispy_field }}</div>
                 </div>
                 <div class="col-md-4 pt-2 pb-2">
-                  <h6 class="p-2 mb-2 bg-success text-white text-center">
-                    HOD's Approval and Comment
-                  </h6>
-                  <div class="col-md-6">
-                    {{requestform.hod_comment | as_crispy_field }}
-                  </div>
+                  <h6 class="p-2 mb-2 bg-success text-white text-center">HOD's Approval and Comment</h6>
+                  <div class="col-md-6">{{requestform.hod_comment | as_crispy_field }}</div>
                 </div>
               </div>
             </div>
