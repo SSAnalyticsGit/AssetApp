@@ -18,4 +18,4 @@ class Items(models.Model):
         super(Items, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.item_number + ' ' + self.name
+        return self.product

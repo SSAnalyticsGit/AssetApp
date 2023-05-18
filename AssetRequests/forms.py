@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm, DateInput, Textarea, TextInput, NumberInput
+from django.forms import ModelForm, DateInput, Textarea, TextInput, NumberInput, Select
 from .models import Engineer, Site, AssetRequest
 
 
@@ -24,6 +24,7 @@ class RequestForm(ModelForm):
             'bad_equipment_rating': TextInput(),
             'bad_days_in_ops': NumberInput(),
             'bad_installation_date': DateInput(attrs={'type': 'date'}),
+            'product': Select(attrs={'style':"width:140pt"}),
 
             'new_equipment_name': TextInput(),
             'new_manufacturer': TextInput(),
