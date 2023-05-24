@@ -51,7 +51,6 @@ def MakeRequestView(request, id=0):
             fullmessage = 'Dear Sir, \n\
                 A request for new asset is awaiting your review and approval. \n\
                 Please click here to access request and make necessary approval. \n\
-                https://ssar.azurewebsites.net/ \n\
                 Thank you.' 
 
             try:
