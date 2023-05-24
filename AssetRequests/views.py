@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Engineer, Site, UserProfile, AssetRequest
@@ -48,9 +49,10 @@ def MakeRequestView(request, id=0):
                 manager_email = e.email
 
             body = {}
-            fullmessage = 'Dear Sir, \n\
+            fullmessage = f'Dear Sir, \n\
                 A request for new asset is awaiting your review and approval. \n\
                 Please click here to access request and make necessary approval. \n\
+                {os.environ["BASEURL"]}/request/pending/all\n\
                 Thank you.'
 
             try:
